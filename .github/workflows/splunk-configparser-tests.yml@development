@@ -1,0 +1,32 @@
+name: splunk-configparser-tests
+
+on:
+  workflow_call:
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.8'
+          cache: 'pip' # caching pip dependencies
+
+      - name: Checkout tests
+        uses: actions/checkout@v4
+        with:
+          repo: lluked/splunk-configparser-tests
+          path: splunk-configparser-tests
+
+      - name: Install python dependencies
+        run: pip install -r splunk-configparser-tests/requirements.txt
+
+      - name: Checkout app
+        uses: actions/checkout@v4
+        with:
+          path: splunk_app
+
+      - name: List contents of app
+        run: ls -laR splunk_app
