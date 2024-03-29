@@ -17,7 +17,7 @@ jobs:
       - name: Checkout tests
         uses: actions/checkout@v4
         with:
-          repo: lluked/splunk-configparser-tests
+          repo: lluked/Splunk-Configparser-Tests
           path: splunk-configparser-tests
 
       - name: Install python dependencies
